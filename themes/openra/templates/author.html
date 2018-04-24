@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} - Articles by {{ author }}{% endblock %}
+{% block content %}
+<h3>Articles by {{ author }}</h3>
+<ul id="postlist">
+{% for post in dates %}
+  {% if post.author == author %}
+  <li class="newsDateTitle">
+	  <a href="/{{ post.slug }}">{{ post.title }}</a>
+	  <p class="newsDetails">Posted by <a href="/{{ post.author.url }}">{{ post.author }}</a> on {{ post.locale_date }}</p>
+	  <p class="newsDetails"><a href="{{ post.path }}>#disqus_thread" data-disqus-identifier="{{ post.metadata.disqus_id }}"></a></p>
+  </li>
+  {% endif %}
+{% endfor %}
+</ul>
+{% endblock %}
+

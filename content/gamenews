@@ -1,8 +1,0 @@
-2018-03-19 16-00-00:
-	Title: Red Alert 1v1 and 2v2 Tournaments
-	Author: netnazgul
-	Content: Incoming Transmission:\nThe fifth installment of Red Alert Global League as well as Abarrat's Team Tournament are launching soon.\n\nVisit www.openra.net to find all the links to tournament rules and registration pages, and also to read all the latest news of the OpenRA project and its development.
-2018-03-07 23-00-00:
-	Title: Release 20180307
-	Author: reaperrr
-	Content: Hotfix release 20180307 is now online!\n\nIt fixes following issues:\n• Fixed "Failed to query server list" (requiring Mono 4.2 or newer)\n• Fixed compatibility with Mono 5.10 and newer\n• Fixed Windows build scripts\n• Fixed debug.log growing excessively in D2k\n\nGrab it now from www.openra.net! We hope you enjoy it!

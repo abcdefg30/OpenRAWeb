@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="content">
+<h3>Archived News</h3>
+<ul id="newslist">
+{% for post in dates %}
+  <li class="newsDateTitle">
+	  <a href="{{ post.slug }}">{{ post.title }}</a>
+	  <p class="newsDetails">Posted by <a href="{{ post.author.url }}">{{ post.author }}</a> on {{ post.locale_date }}</p>
+	  <p class="newsDetails"><a href="{{ post.path }}>#disqus_thread" data-disqus-identifier="{{ post.metadata.disqus_id }}"></a></p>
+  </li>
+{% endfor %}
+</ul>
+<script type="text/javascript">var disqus_shortname='openra';(function(){var s = document.createElement('script');s.async=true;s.type='text/javascript';s.src='http://'+disqus_shortname+'.disqus.com/count.js';(document.getElementsByTagName('HEAD')[0]||document.getElementsByTagName('BODY')[0]).appendChild(s);}());</script>
+</div>
+{% endblock %}

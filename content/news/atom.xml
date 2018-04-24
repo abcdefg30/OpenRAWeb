@@ -1,6 +1,0 @@
----
-permalink: 'atom'
-type: 'feed'
-title: 'OpenRA - News Feed'
----
-<%= atom_feed %>

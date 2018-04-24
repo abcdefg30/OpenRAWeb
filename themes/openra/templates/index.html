@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+<section id="content">
+
+{% block content_title %}
+<div id="toppanel">
+  <div id="screenshot-banner"><img src="/theme/images/banner.svg"></div>
+  <div id="screenshot">
+    {% set first = 'true' %}
+    {% for item in HOME_IMAGES %}
+      <img width="500" height="275" {{ "class=\"active\"" if first == 'true' else "style=\"opacity: 0\"" }} src="images/screenshots/{{ item }}" alt="" />
+      {% set first = 'false' %}
+    {% endfor %}
+  </div>
+  <div id="rightpanel">
+    <p>Classic strategy games, rebuilt for the modern era.</p>
+	<p>Open Source. Free. For all modern operating systems.</p>
+    <ul class="mainlinks">
+      <li><a id="download" href="/download" alt="Install now!" title="Install now!">Install now!</a></li>
+    </ul>
+    <div id="so-links">
+      <p>Find us on social media:</p>
+      <ul>
+      {% for s in SOCIAL %}
+        <li><a href="{{ s[2] }}" {{ 'rel="publisher"' if s == "gplus" }}><img src="/images/social/{{ s[1] }}.svg" alt="{{ s[0] }}" title="{{ s[0] }}" /></a></li>
+      {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+<br style="clear:both" />
+<hr />
+<h2 id="newsbanner">Latest News</h2>
+
+<h3 class="newsTitle">{{ articles[0].title }}</h3>
+{{ articles[0].content }}
+
+<script>
+  function nextSlide() {
+    var x = $('#screenshot img:not(.active)');
+    return $(x[Math.floor(Math.random() * x.length)]);
+  }
+
+  function slideSwitch() {
+    var active = $('#screenshot img.active');
+    if (active.length == 0)
+      active = nextSlide();
+    var next = nextSlide();
+    active.addClass('last-active');
+    next.css({opacity: 0.0})
+      .addClass('active')
+      .animate({opacity: 1.0}, 1000, function() {
+          active.removeClass('active last-active');
+    });
+  }
+  $(function() { setInterval("slideSwitch()", 4000); });
+</script>
+
+</section><!-- /#content -->
+{% endblock content %}
